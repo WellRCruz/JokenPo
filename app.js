@@ -23,6 +23,21 @@ function jogar() {
                 document.getElementById('pc').src = "img/pctesoura.png"
                 break
         }
+        // Lógica para determinar empate ou declarar o vencedor
+        if ((document.getElementById('pedra').checked === true && sorteio === 0) || (document.getElementById('papel').checked === true && sorteio === 1) || (document.getElementById('tesoura').checked === true && sorteio === 2)) {
+            // A linha abaixo insere um texto na tag identificada
+            document.getElementById('resultado').innerText = "EMPATE"
+            
+        }else if ((document.getElementById('pedra').checked === true && sorteio === 2) || (document.getElementById('papel').checked === true && sorteio === 0) || (document.getElementById('tesoura').checked === true && sorteio === 1)) {
+            document.getElementById('resultado').innerText="Jogador Venceu!" 
+        } else{
+            document.getElementById('resultado').innerText="PC Venceu!"
+        }
     }
 
 }
+
+function limpar() {
+    document.getElementById('pc').src="img/pc.png"
+    document.getElementById('resultado').innerText=""
+} 
